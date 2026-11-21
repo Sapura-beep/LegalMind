@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LegalMind — O‘zbekiston Qonunchiligi & BMT Inson Huquqlari AI Platformasi</title>
+  <title>LegalMind — O'zbekiston Qonunchiligi & BMT Inson Huquqlari AI Platformasi</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="style.css">
   <script>
@@ -29,17 +27,17 @@
     }
   </script>
 </head>
-<body class="bg-[#0b0f19] text-slate-100 min-h-screen flex flex-col antialiased selection:bg-blue-600 selection:text-white">
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen flex flex-col antialiased selection:bg-blue-600 selection:text-white pb-16 md:pb-0">
 
   <!-- TOP BANNER -->
   <div class="bg-gradient-to-r from-blue-900/60 via-indigo-900/40 to-slate-900/80 border-b border-blue-500/20 py-2 px-4 text-xs text-center text-blue-200 flex items-center justify-center gap-2">
     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-500/20 text-blue-300 border border-blue-400/30">
       CivicTech & Human Rights
     </span>
-    <span id="banner-text">O‘zbekiston qonunlari va BMT Inson Huquqlari asosida ishlovchi ochiq AI platformasi</span>
+    <span id="banner-text">O'zbekiston qonunlari va BMT Inson Huquqlari asosida ishlovchi ochiq AI platformasi</span>
   </div>
 
-  <!-- NAVIGATION BAR -->
+  <!-- NAVIGATION BAR (DESKTOP) -->
   <header class="sticky top-0 z-40 glass-panel border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
@@ -57,7 +55,7 @@
         </div>
       </div>
 
-      <!-- Navigation Tabs -->
+      <!-- Desktop Tabs -->
       <nav class="hidden md:flex items-center gap-1 bg-slate-900/80 p-1 rounded-xl border border-slate-800/80">
         <button onclick="switchTab('home')" id="tab-btn-home" class="nav-tab px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all text-blue-400 bg-blue-500/10">
           <span class="flex items-center gap-2"><i data-lucide="layout-dashboard" class="w-4 h-4"></i><span id="nav-home">Bosh sahifa</span></span>
@@ -66,7 +64,7 @@
           <span class="flex items-center gap-2"><i data-lucide="message-square" class="w-4 h-4"></i><span id="nav-advisor">Huquqiy Maslahatchi</span></span>
         </button>
         <button onclick="switchTab('codes')" id="tab-btn-codes" class="nav-tab px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all text-slate-400 hover:text-slate-200">
-          <span class="flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4"></i><span id="nav-codes">Kodekslar & Inson Huquqlari</span></span>
+          <span class="flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4"></i><span id="nav-codes">Kodekslar & Moddalar</span></span>
         </button>
         <button onclick="switchTab('auditor')" id="tab-btn-auditor" class="nav-tab px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all text-slate-400 hover:text-slate-200">
           <span class="flex items-center gap-2"><i data-lucide="file-check-2" class="w-4 h-4"></i><span id="nav-auditor">Shartnoma Auditi</span></span>
@@ -76,35 +74,55 @@
         </button>
       </nav>
 
-      <!-- Right Actions: Language Switcher & Telegram link -->
+      <!-- Language Switcher & Telegram -->
       <div class="flex items-center gap-2">
         <a href="https://t.me/sapuras" target="_blank" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-semibold transition-all">
           <i data-lucide="send" class="w-3.5 h-3.5"></i>
           <span>@sapuras</span>
         </a>
         <div class="flex items-center bg-slate-900/90 rounded-lg p-0.5 border border-slate-800">
-          <button onclick="setLanguage('uz')" id="lang-btn-uz" class="px-2.5 py-1 text-xs font-semibold rounded transition-all bg-blue-600 text-white">
-            UZ
-          </button>
-          <button onclick="setLanguage('en')" id="lang-btn-en" class="px-2.5 py-1 text-xs font-semibold rounded transition-all text-slate-400 hover:text-slate-200">
-            EN
-          </button>
+          <button onclick="setLanguage('uz')" id="lang-btn-uz" class="px-2.5 py-1 text-xs font-semibold rounded transition-all bg-blue-600 text-white">UZ</button>
+          <button onclick="setLanguage('en')" id="lang-btn-en" class="px-2.5 py-1 text-xs font-semibold rounded transition-all text-slate-400 hover:text-slate-200">EN</button>
         </div>
       </div>
 
+    </div>
+
+    <!-- MOBILE NAVIGATION TABS -->
+    <div class="flex md:hidden overflow-x-auto py-2 px-3 gap-1.5 border-t border-slate-800/80 bg-slate-950 text-xs font-medium no-scrollbar">
+      <button onclick="switchTab('home')" id="mob-tab-home" class="shrink-0 px-3 py-1.5 rounded-lg bg-blue-600 text-white font-semibold flex items-center gap-1.5">
+        <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
+        <span id="mob-nav-home">Bosh sahifa</span>
+      </button>
+      <button onclick="switchTab('advisor')" id="mob-tab-advisor" class="shrink-0 px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 flex items-center gap-1.5">
+        <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+        <span id="mob-nav-advisor">Maslahatchi</span>
+      </button>
+      <button onclick="switchTab('codes')" id="mob-tab-codes" class="shrink-0 px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 flex items-center gap-1.5">
+        <i data-lucide="book-open" class="w-3.5 h-3.5 text-emerald-400"></i>
+        <span id="mob-nav-codes">Kodekslar</span>
+      </button>
+      <button onclick="switchTab('auditor')" id="mob-tab-auditor" class="shrink-0 px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 flex items-center gap-1.5">
+        <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span id="mob-nav-auditor">Shartnoma</span>
+      </button>
+      <button onclick="switchTab('reviews')" id="mob-tab-reviews" class="shrink-0 px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 flex items-center gap-1.5">
+        <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span id="mob-nav-reviews">Sharhlar</span>
+      </button>
     </div>
   </header>
 
   <!-- MAIN APP CONTAINER -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-    <!-- ==================== 1. HOME TAB ==================== -->
+    <!-- HOME TAB -->
     <div id="tab-content-home" class="space-y-10 animate-fade-in">
       <section class="relative rounded-3xl p-8 sm:p-12 overflow-hidden border border-slate-800/80 bg-gradient-to-b from-slate-900/90 via-slate-900/50 to-slate-950/80 shadow-2xl">
         <div class="max-w-3xl space-y-5">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
             <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-            <span id="hero-badge">O‘zbekiston Qonunchiligi & BMT Inson Huquqlari</span>
+            <span id="hero-badge">O'zbekiston Qonunchiligi & BMT Inson Huquqlari</span>
           </div>
 
           <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
@@ -113,7 +131,7 @@
           </h1>
 
           <p class="text-slate-300 text-base sm:text-lg leading-relaxed" id="hero-desc">
-            LegalMind — O‘zbekistonning barcha asosiy kodekslari, BMT Inson Huquqlari Umumjahon Deklaratsiyasi va shartnomalar tahlilini birlashtirgan sun'iy intellekt ekotizimi.
+            LegalMind — O'zbekistonning barcha asosiy kodekslari, BMT Inson Huquqlari Umumjahon Deklaratsiyasi va shartnomalar tahlilini birlashtirgan sun'iy intellekt ekotizimi.
           </p>
 
           <div class="pt-2 flex flex-wrap gap-3">
@@ -122,39 +140,42 @@
               <span id="hero-btn-advisor">Maslahatchi bilan suhbat</span>
             </button>
             <button onclick="switchTab('codes')" class="px-6 py-3 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 text-slate-200 font-semibold text-sm border border-slate-700 transition-all flex items-center gap-2">
-              <i data-lucide="book-open" class="w-4 h-4"></i>
-              <span id="hero-btn-codes">Barcha Kodekslar & Inson Huquqlari</span>
+              <i data-lucide="book-open" class="w-4 h-4 text-emerald-400"></i>
+              <span id="hero-btn-codes">Barcha Kodekslar & Moddalar</span>
             </button>
-            <button onclick="switchTab('reviews')" class="px-6 py-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-semibold text-sm border border-amber-500/30 transition-all flex items-center gap-2">
+            <button onclick="switchTab('auditor')" class="px-6 py-3 rounded-xl bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 font-semibold text-sm border border-amber-500/30 transition-all flex items-center gap-2">
+              <i data-lucide="file-check-2" class="w-4 h-4"></i>
+              <span id="hero-btn-auditor">Shartnomani tekshirish</span>
+            </button>
+            <button onclick="switchTab('reviews')" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 font-semibold text-sm border border-slate-800 transition-all flex items-center gap-2">
               <i data-lucide="star" class="w-4 h-4 text-amber-400"></i>
-              <span id="hero-btn-reviews">Fikrlar va Baholash (4.9★)</span>
+              <span id="hero-btn-reviews">Baho va Sharh qoldirish</span>
             </button>
           </div>
         </div>
 
-        <!-- Metric counters -->
         <div class="mt-10 pt-8 border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-4">
           <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
             <div class="text-2xl font-bold text-white tracking-tight">100,000+</div>
             <div class="text-xs text-slate-400 mt-0.5">lex.uz Qonunlar Bazasi</div>
           </div>
           <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div class="text-2xl font-bold text-amber-400 tracking-tight">4.9 / 5.0 ⭐</div>
-            <div class="text-xs text-slate-400 mt-0.5" id="hero-stat-rating">Foydalanuvchilar Bahosi</div>
+            <div class="text-2xl font-bold text-blue-400 tracking-tight">30 Modda</div>
+            <div class="text-xs text-slate-400 mt-0.5">BMT Inson Huquqlari</div>
           </div>
           <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
             <div class="text-2xl font-bold text-emerald-400 tracking-tight">7 Kodeks</div>
             <div class="text-xs text-slate-400 mt-0.5">Konstitutsiya, Mehnat, Fuqarolik...</div>
           </div>
           <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div class="text-2xl font-bold text-purple-400 tracking-tight" id="live-visitors-badge">150+</div>
-            <div class="text-xs text-slate-400 mt-0.5" id="hero-stat-visits">Jami Tashriflar</div>
+            <div class="text-2xl font-bold text-purple-400 tracking-tight" id="live-visitors-badge">1</div>
+            <div class="text-xs text-slate-400 mt-0.5" id="hero-stat-visits">Jonli Tashriflar</div>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- ==================== 2. LEGAL ADVISOR TAB ==================== -->
+    <!-- LEGAL ADVISOR TAB -->
     <div id="tab-content-advisor" class="hidden space-y-6 animate-fade-in">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
         <div>
@@ -162,74 +183,52 @@
             <i data-lucide="scale" class="w-6 h-6 text-blue-400"></i>
             <span id="advisor-header-title">Huquqiy Maslahatchi & Aniq Moddalar Tahlili</span>
           </h2>
-          <p class="text-sm text-slate-400 mt-1" id="advisor-header-desc">
-            O‘zbekiston Kodekslari va xalqaro me'yorlar bo‘yicha istalgan savolingizga javob oling.
-          </p>
+          <p class="text-sm text-slate-400 mt-1" id="advisor-header-desc">O'zbekiston Kodekslari va xalqaro me'yorlar bo'yicha istalgan savolingizga javob oling.</p>
         </div>
       </div>
 
-      <!-- Quick Topics -->
-      <div class="flex flex-wrap gap-2 text-xs" id="desktop-topics-container">
-        <!-- Rendered via JS -->
-      </div>
+      <div class="flex flex-wrap gap-2 text-xs" id="desktop-topics-container"></div>
 
-      <!-- Chat Box -->
       <div class="glass-panel rounded-2xl border border-slate-800 overflow-hidden flex flex-col h-[520px]">
-        <div id="chat-messages" class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4">
-          <!-- Rendered via JS -->
-        </div>
-
+        <div id="chat-messages" class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4"></div>
         <div class="p-3 sm:p-4 bg-slate-950/70 border-t border-slate-800">
           <form onsubmit="handleChatSubmit(event)" class="flex gap-2 items-center">
-            <input 
-              type="text" 
-              id="chat-input" 
-              placeholder="Istalgan modda yoki huquqiy savolingizni yozing (masalan: '31-modda', 'Inson huquqlari 1', 'Aliment')..." 
-              class="flex-1 bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
-            >
-            <button 
-              type="submit" 
-              id="btn-chat-send"
-              class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm flex items-center gap-2 shadow-lg shadow-blue-600/30 transition-all"
-            >
+            <input type="text" id="chat-input" placeholder="Istalgan modda yoki savolingizni yozing..." class="flex-1 bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
+            <button type="submit" id="btn-chat-send" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm flex items-center gap-2 shadow-lg shadow-blue-600/30 transition-all">
               <i data-lucide="send" class="w-4 h-4"></i>
-              <span id="btn-send-label">So‘rash</span>
+              <span id="btn-send-label">So'rash</span>
             </button>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- ==================== 3. CODES & HUMAN RIGHTS TAB ==================== -->
+    <!-- CODES & HUMAN RIGHTS TAB -->
     <div id="tab-content-codes" class="hidden space-y-6 animate-fade-in">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
         <div>
           <h2 class="text-2xl font-bold text-white flex items-center gap-2">
             <i data-lucide="book-marked" class="w-6 h-6 text-emerald-400"></i>
-            <span id="codes-header-title">Kodekslar Kutubxonasi & Inson Huquqlari</span>
+            <span id="codes-header-title">Kodekslar Kutubxonasi & Inson Huquqlari Moddalari</span>
           </h2>
-          <p class="text-sm text-slate-400 mt-1" id="codes-header-desc">
-            BMT Umumjahon Deklaratsiyasi va O‘zbekiston Respublikasi barcha asosiy qonunchilik to‘plamlari.
-          </p>
+          <p class="text-sm text-slate-400 mt-1" id="codes-header-desc">BMT Umumjahon Deklaratsiyasi va O'zbekiston Respublikasi barcha asosiy kodekslari moddalari.</p>
         </div>
 
         <!-- Filter pills -->
         <div class="flex flex-wrap gap-1.5 bg-slate-900 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
-          <button onclick="filterDesktopCode('hr')" class="px-3 py-1.5 rounded-lg bg-blue-600 text-white code-pill-btn" data-code="hr">🌍 Inson Huquqlari</button>
-          <button onclick="filterDesktopCode('const')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white code-pill-btn" data-code="const">🏛️ Konstitutsiya</button>
-          <button onclick="filterDesktopCode('labor')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white code-pill-btn" data-code="labor">💼 Mehnat</button>
-          <button onclick="filterDesktopCode('civil')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white code-pill-btn" data-code="civil">⚖️ Fuqarolik</button>
-          <button onclick="filterDesktopCode('family')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white code-pill-btn" data-code="family">👶 Oila</button>
-          <button onclick="filterDesktopCode('crim')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white code-pill-btn" data-code="crim">🛡️ Jinoyat</button>
+          <button onclick="filterDesktopCode('hr')" class="px-3 py-1.5 rounded-lg bg-blue-600 text-white code-pill-btn" data-code="hr" id="code-pill-hr">🌍 Inson Huquqlari</button>
+          <button onclick="filterDesktopCode('const')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white code-pill-btn" data-code="const" id="code-pill-const">🏛️ Konstitutsiya</button>
+          <button onclick="filterDesktopCode('labor')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white code-pill-btn" data-code="labor" id="code-pill-labor">💼 Mehnat</button>
+          <button onclick="filterDesktopCode('civil')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white code-pill-btn" data-code="civil" id="code-pill-civil">⚖️ Fuqarolik</button>
+          <button onclick="filterDesktopCode('family')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white code-pill-btn" data-code="family" id="code-pill-family">👶 Oila</button>
+          <button onclick="filterDesktopCode('crim')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white code-pill-btn" data-code="crim" id="code-pill-crim">🛡️ Jinoyat</button>
         </div>
       </div>
 
-      <div id="desktop-articles-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Rendered via JS -->
-      </div>
+      <div id="desktop-articles-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
     </div>
 
-    <!-- ==================== 4. AUDITOR TAB ==================== -->
+    <!-- AUDITOR TAB -->
     <div id="tab-content-auditor" class="hidden space-y-6 animate-fade-in">
       <div class="flex items-center justify-between pb-4 border-b border-slate-800">
         <div>
@@ -237,38 +236,21 @@
             <i data-lucide="file-shield" class="w-6 h-6 text-amber-400"></i>
             <span id="auditor-header-title">Shartnomalar Auditi va Xavf Analizatori</span>
           </h2>
-          <p class="text-sm text-slate-400 mt-1" id="auditor-header-desc">
-            Shartnoma bandlaridagi yashirin xavflarni bir soniyada fosh qiling.
-          </p>
+          <p class="text-sm text-slate-400 mt-1" id="auditor-header-desc">Shartnoma bandlaridagi yashirin xavflarni bir soniyada fosh qiling.</p>
         </div>
       </div>
 
       <div class="flex flex-wrap items-center gap-2 text-xs">
         <span class="text-slate-500 font-medium" id="sample-contract-label">Tayyor namunalar:</span>
-        <button onclick="loadSampleContract('labor')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white" id="ui-sample-labor">
-          📄 Noqonuniy Mehnat Shartnomasi
-        </button>
-        <button onclick="loadSampleContract('freelance')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white" id="ui-sample-freelance">
-          💻 Frilans Shartnomasi
-        </button>
-        <button onclick="loadSampleContract('rent')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white" id="ui-sample-rent">
-          🏠 Ijara Shartnomasi
-        </button>
+        <button onclick="loadSampleContract('labor')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white" id="ui-sample-labor">📄 Noqonuniy Mehnat Shartnomasi</button>
+        <button onclick="loadSampleContract('freelance')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white" id="ui-sample-freelance">💻 Frilans Shartnomasi</button>
+        <button onclick="loadSampleContract('rent')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white" id="ui-sample-rent">🏠 Ijara Shartnomasi</button>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div class="lg:col-span-6 space-y-3">
-          <textarea 
-            id="contract-input" 
-            rows="14" 
-            placeholder="Shartnoma matnini kiriting..." 
-            class="w-full bg-slate-900/90 border border-slate-800 rounded-2xl p-4 text-xs font-mono text-slate-200 focus:outline-none focus:border-amber-500 resize-none"
-          ></textarea>
-          <button 
-            onclick="analyzeContract()" 
-            id="btn-analyze"
-            class="w-full py-3 px-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-600/25 transition-all"
-          >
+          <textarea id="contract-input" rows="14" placeholder="Shartnoma matnini kiriting..." class="w-full bg-slate-900/90 border border-slate-800 rounded-2xl p-4 text-xs font-mono text-slate-200 focus:outline-none focus:border-amber-500 resize-none"></textarea>
+          <button onclick="analyzeContract()" id="btn-analyze" class="w-full py-3 px-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-600/25 transition-all">
             <i data-lucide="scan-line" class="w-4 h-4"></i>
             <span id="btn-analyze-label">Xavflarni Tahlil Qilish</span>
           </button>
@@ -279,21 +261,14 @@
             <i data-lucide="file-search" class="w-10 h-10 text-slate-500"></i>
             <p class="text-sm text-slate-400 font-medium" id="audit-empty-title">Hali hech qanday shartnoma tekshirilmadi</p>
           </div>
-
           <div id="audit-results" class="hidden space-y-3">
-            <div id="risk-score-box" class="p-4 rounded-2xl border flex items-center justify-between">
-              <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Risk Darajasi</span>
-                <h4 id="risk-score-text" class="text-2xl font-black mt-0.5">YUQORI XAVF (82/100)</h4>
-              </div>
-            </div>
             <div id="audit-clauses-container" class="space-y-2 max-h-[300px] overflow-y-auto pr-1"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ==================== 5. REVIEWS & RATINGS TAB ==================== -->
+    <!-- REVIEWS & RATINGS TAB -->
     <div id="tab-content-reviews" class="hidden space-y-8 animate-fade-in">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
         <div>
@@ -301,52 +276,36 @@
             <i data-lucide="star" class="w-6 h-6 text-amber-400"></i>
             <span id="reviews-header-title">Foydalanuvchilar Bahosi & Sharhlar</span>
           </h2>
-          <p class="text-sm text-slate-400 mt-1" id="reviews-header-desc">
-            Platforma haqida o‘z bahoingiz va fikringizni qoldiring yoki muallifga to‘g‘ridan-to‘g‘ri yozing.
-          </p>
+          <p class="text-sm text-slate-400 mt-1" id="reviews-header-desc">Platforma haqida o'z bahoingiz va fikringizni qoldiring yoki muallifga to'g'ridan-to'g'ri yozing.</p>
         </div>
-
         <div class="flex items-center gap-3 p-3 rounded-2xl bg-amber-500/10 border border-amber-500/20">
-          <div class="text-3xl font-extrabold text-amber-400" id="avg-rating-val">4.9</div>
+          <div class="text-3xl font-extrabold text-amber-400">5.0</div>
           <div>
             <div class="flex text-amber-400 text-sm">★★★★★</div>
-            <div class="text-[11px] text-slate-400" id="reviews-count-badge">50+ Mamnun foydalanuvchilar</div>
+            <div class="text-[11px] text-slate-400" id="reviews-count-badge">Foydalanuvchilar fikri</div>
           </div>
         </div>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
-        <!-- Left: Submit Review Form -->
+        <!-- Submit Review Form -->
         <div class="lg:col-span-5 space-y-4 glass-card p-6 rounded-3xl border border-slate-800">
-          <h3 class="text-base font-bold text-white flex items-center gap-2" id="form-review-title">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
             <i data-lucide="edit-3" class="w-4 h-4 text-blue-400"></i>
-            <span>Fikr va Baho Qoldirish</span>
+            <span id="form-review-title">Fikr va Baho Qoldirish</span>
           </h3>
 
           <form onsubmit="handleReviewSubmit(event)" class="space-y-3.5 text-xs">
             <div>
               <label class="block text-slate-300 font-semibold mb-1" id="label-rev-name">Ismingiz</label>
-              <input 
-                type="text" 
-                id="rev-name" 
-                required
-                placeholder="Ismingizni yozing..." 
-                class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500"
-              >
+              <input type="text" id="rev-name" required placeholder="Ismingizni yozing..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500">
             </div>
 
             <div>
               <label class="block text-slate-300 font-semibold mb-1" id="label-rev-role">Faoliyatingiz / Kasbingiz</label>
-              <input 
-                type="text" 
-                id="rev-role" 
-                placeholder="Masalan: Talaba, Yurist, Frilanser, Expat..." 
-                class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500"
-              >
+              <input type="text" id="rev-role" placeholder="Masalan: Talaba, Yurist, Frilanser..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500">
             </div>
 
-            <!-- Star Rating Input -->
             <div>
               <label class="block text-slate-300 font-semibold mb-1" id="label-rev-stars">Platformani baholang</label>
               <div class="flex gap-2 text-2xl cursor-pointer" id="star-rating-selector">
@@ -360,29 +319,15 @@
 
             <div>
               <label class="block text-slate-300 font-semibold mb-1" id="label-rev-comment">Fikringiz yoki Sharhingiz</label>
-              <textarea 
-                id="rev-comment" 
-                rows="4" 
-                required
-                placeholder="Platforma sizga qanday yordam berdi? Taklif va mulohazalaringiz..." 
-                class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500 resize-none"
-              ></textarea>
+              <textarea id="rev-comment" rows="4" required placeholder="Platforma haqida o'z fikr va takliflaringizni yozing..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-blue-500 resize-none"></textarea>
             </div>
 
             <div class="pt-1 flex gap-2">
-              <button 
-                type="submit" 
-                class="flex-1 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-1.5"
-              >
+              <button type="submit" class="flex-1 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-1.5">
                 <i data-lucide="check" class="w-4 h-4"></i>
                 <span id="btn-submit-review">Sharhni Yuborish</span>
               </button>
-              <a 
-                href="https://t.me/sapuras" 
-                target="_blank" 
-                class="px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500/40 text-blue-400 text-xs font-semibold flex items-center gap-1"
-                title="Telegramdan to'g'ridan-to'g'ri yozish"
-              >
+              <a href="https://t.me/sapuras" target="_blank" class="px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500/40 text-blue-400 text-xs font-semibold flex items-center gap-1">
                 <i data-lucide="send" class="w-3.5 h-3.5"></i>
                 <span>@sapuras</span>
               </a>
@@ -390,34 +335,25 @@
           </form>
         </div>
 
-        <!-- Right: Live Reviews Feed -->
+        <!-- Live Reviews Feed -->
         <div class="lg:col-span-7 space-y-4">
           <div class="flex items-center justify-between">
             <h3 class="text-base font-bold text-white flex items-center gap-2" id="feed-reviews-title">
               <i data-lucide="message-square" class="w-4 h-4 text-emerald-400"></i>
-              <span>Foydalanuvchilar Sharhlari</span>
+              Foydalanuvchilar Sharhlari
             </h3>
             <span class="text-xs text-slate-500" id="feed-realtime-tag">Jonli Yangilanadi</span>
           </div>
-
-          <div id="reviews-feed-container" class="space-y-3.5 max-h-[500px] overflow-y-auto pr-1">
-            <!-- Rendered via JS -->
-          </div>
+          <div id="reviews-feed-container" class="space-y-3.5 max-h-[500px] overflow-y-auto pr-1"></div>
         </div>
-
       </div>
     </div>
 
   </main>
 
-  <!-- FLOATING TELEGRAM FEEDBACK BUTTON -->
+  <!-- FLOATING TELEGRAM BUTTON -->
   <aside class="fixed bottom-6 right-6 z-50">
-    <a 
-      href="https://t.me/sapuras" 
-      target="_blank" 
-      class="flex items-center gap-2 px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs shadow-2xl shadow-blue-500/40 transition-all transform hover:scale-105 border border-blue-400/40 group"
-      title="Muallif bilan bog'lanish va takliflar"
-    >
+    <a href="https://t.me/sapuras" target="_blank" class="flex items-center gap-2 px-4 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs shadow-2xl shadow-blue-500/40 transition-all transform hover:scale-105 border border-blue-400/40">
       <i data-lucide="message-circle" class="w-4 h-4 text-white"></i>
       <span id="floating-feedback-label">Fikr va Takliflar (@sapuras)</span>
     </a>
@@ -430,16 +366,13 @@
         <i data-lucide="scale" class="w-4 h-4 text-blue-500"></i>
         <span><strong>LegalMind UZ</strong> — Open CivicTech & Human Rights Initiative</span>
       </div>
-
-      <!-- Live Visitor Counter Widget -->
       <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px]">
         <span class="flex items-center gap-1.5 text-slate-400">
           <i data-lucide="eye" class="w-3.5 h-3.5 text-emerald-400"></i>
-          <span id="footer-counter-label">Jami ko‘rishlar:</span>
+          <span id="footer-counter-label">Jami ko'rishlar:</span>
         </span>
-        <span id="footer-visitor-count" class="font-mono font-bold text-emerald-400 tracking-wider">Yuklanmoqda...</span>
+        <span id="footer-visitor-count" class="font-mono font-bold text-emerald-400 tracking-wider">1</span>
       </div>
-
       <div class="flex items-center gap-3 text-[11px]">
         <a href="https://t.me/sapuras" target="_blank" class="text-blue-400 hover:underline">Aloqa: @sapuras</a>
         <span>•</span>
