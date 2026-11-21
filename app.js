@@ -10,35 +10,7 @@ const state = {
   activeCodeFilter: 'hr',
   visitorCount: 152,
   formStars: 5,
-  reviews: JSON.parse(localStorage.getItem('legalmind_user_reviews')) || [
-    {
-      name: "Javohir To‘xtasinov",
-      roleUz: "Yuridik Universiteti (TDYuU) talabasi",
-      roleEn: "Law Student, Tashkent State University of Law",
-      stars: 5,
-      date: "Kecha / Yesterday",
-      commentUz: "Mehnat kodeksining 161 va 181-moddalari bo‘yicha tahlili va aniq moddalarni chiqarib berishi qoyilmaqom! Talabalar va yosh mutaxassislar uchun juda kerakli platforma.",
-      commentEn: "The statutory accuracy on Labor Code termination and work hours is truly remarkable. Essential tool for students and legal clinics."
-    },
-    {
-      name: "Elena Rostova",
-      roleUz: "Xorijiy mutaxassis / Expat in Tashkent",
-      roleEn: "Expatriate & Software Engineer in Tashkent",
-      stars: 5,
-      date: "2 kun oldin / 2 days ago",
-      commentUz: "Chet elliklar uchun emehmon registratsiyasi va ijara shartnomalaridagi xavflarni ingliz tilida tushuntirib bergani menga juda ko‘p muammolarni yechishga yordam berdi. Ajoyib AI loyiha!",
-      commentEn: "The English guidance on foreigner registration and tenancy protections saved me so much time and hassle. Excellent cross-border LegalTech!"
-    },
-    {
-      name: "Azizbek Karimov",
-      roleUz: "Frilanser dasturchi",
-      roleEn: "Freelance Full-stack Developer",
-      stars: 5,
-      date: "3 kun oldin / 3 days ago",
-      commentUz: "Frilans shartnomamdagi intellektual mulkni cheksiz tortib olish va bir tomonlama jarimalarni darhol qizil qilib topib berdi. Shartnomani qayta tuzish bo‘yicha taklifi bilan o‘zgartirdim. Rahmat!",
-      commentEn: "Instantly flagged an unfair IP forfeiture clause in my freelance agreement. Renegotiated it safely based on the advice. Huge thanks to the author!"
-    }
-  ]
+  reviews: JSON.parse(localStorage.getItem('legalmind_user_reviews')) || []
 };
 
 const libraryData = {
@@ -47,7 +19,7 @@ const libraryData = {
       num: "1-modda / Article 1",
       titleUz: "Erkinlik va Tenglik",
       titleEn: "Right to Equality & Dignity",
-      bodyUz: "Barcha insonlar erkin, qadr-qimmat va huquqlarda teng bo‘lib tug‘iladilar. Ularga aql va vijdon ato qilingan bo‘lib, bir-birlariga birodarlik ruhida munosabatda bo‘lishlari lozim.",
+      bodyUz: "Barcha insonlar erkin, qadr-qimmat va huquqlarda teng bo'lib tug'iladilar. Ularga aql va vijdon ato qilingan bo'lib, bir-birlariga birodarlik ruhida munosabatda bo'lishlari lozim.",
       bodyEn: "All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience."
     },
     {
@@ -61,14 +33,14 @@ const libraryData = {
       num: "5-modda / Article 5",
       titleUz: "Qiynoqlarni Mutlaq Taqiqlash",
       titleEn: "Freedom from Torture",
-      bodyUz: "Hech kim qiynoqqa yoki shafqatsiz, g‘ayriinsoniy yoxud qadr-qimmatni kamsituvchi muomala va jazoga duchor etilishi mumkin emas.",
+      bodyUz: "Hech kim qiynoqqa yoki shafqatsiz, g'ayriinsoniy yoxud qadr-qimmatni kamsituvchi muomala va jazoga duchor etilishi mumkin emas.",
       bodyEn: "No one shall be subjected to torture or to cruel, inhuman or degrading treatment."
     },
     {
       num: "19-modda / Article 19",
-      titleUz: "Fikr va So‘z Erkinligi",
+      titleUz: "Fikr va So'z Erkinligi",
       titleEn: "Freedom of Expression and Opinion",
-      bodyUz: "Har bir inson fikr va so‘z erkinligi huquqiga ega; axborot va g‘oyalarni har qanday vositalar bilan izlash va tarqatish kafolatlanadi.",
+      bodyUz: "Har bir inson fikr va so'z erkinligi huquqiga ega; axborot va g'oyalarni har qanday vositalar bilan izlash va tarqatish kafolatlanadi.",
       bodyEn: "Everyone has the right to freedom of opinion and expression without interference."
     },
     {
@@ -84,7 +56,7 @@ const libraryData = {
       num: "1-modda / Article 1",
       titleUz: "Suveren, Huquqiy va Ijtimoiy Davlat",
       titleEn: "Sovereign and Legal Republic",
-      bodyUz: "O‘zbekiston — suveren, demokratik, huquqiy, ijtimoiy va dunyoviy davlat.",
+      bodyUz: "O'zbekiston — suveren, demokratik, huquqiy, ijtimoiy va dunyoviy davlat.",
       bodyEn: "Uzbekistan is a sovereign, democratic, legal, social and secular state."
     },
     {
@@ -98,7 +70,7 @@ const libraryData = {
       num: "31-modda / Article 31",
       titleUz: "Shaxsiy Daxlsizlik va Ma'lumotlar Himoyasi",
       titleEn: "Inviolability of Private Life",
-      bodyUz: "Har kim o‘z sha'ni va qadr-qimmati, shaxsiy hayotining daxlsizligi va shaxsiy ma'lumotlarining himoya qilinishi huquqiga ega.",
+      bodyUz: "Har kim o'z sha'ni va qadr-qimmati, shaxsiy hayotining daxlsizligi va shaxsiy ma'lumotlarining himoya qilinishi huquqiga ega.",
       bodyEn: "Everyone has the right to inviolability of private life, honor, and personal data."
     },
     {
@@ -112,9 +84,9 @@ const libraryData = {
   labor: [
     {
       num: "161-modda / Article 161",
-      titleUz: "Ishdan bo‘shatishning qat'iy asoslari",
+      titleUz: "Ishdan bo'shatishning qat'iy asoslari",
       titleEn: "Statutory Termination Safeguards",
-      bodyUz: "Xodim faqat qonunda ko‘rsatilgan asoslar bilan, 2 oy oldin yozma ogohlantirish va ishdan bo‘shatish nafaqasi to‘lanishi sharti bilan bo‘shatilishi mumkin.",
+      bodyUz: "Xodim faqat qonunda ko'rsatilgan asoslar bilan, 2 oy oldin yozma ogohlantirish va ishdan bo'shatish nafaqasi to'lanishi sharti bilan bo'shatilishi mumkin.",
       bodyEn: "Termination by employer requires strict statutory grounds and advance written notice with severance."
     },
     {
@@ -135,9 +107,9 @@ const libraryData = {
   civil: [
     {
       num: "31-modda / Article 31",
-      titleUz: "Bedarak yo‘qolgan deb topish",
+      titleUz: "Bedarak yo'qolgan deb topish",
       titleEn: "Missing Person Declaration",
-      bodyUz: "Shaxs yashash joyida 1 yil davomida bo‘lmasa, sud uni bedarak yo‘qolgan deb topishi mumkin.",
+      bodyUz: "Shaxs yashash joyida 1 yil davomida bo'lmasa, sud uni bedarak yo'qolgan deb topishi mumkin.",
       bodyEn: "A person whose whereabouts are unknown for 1 year may be judicially declared missing."
     },
     {
@@ -160,7 +132,7 @@ const libraryData = {
       num: "96-modda / Article 96",
       titleUz: "Ota-onaning bolalarga ta'minot berish majburiyati",
       titleEn: "Parental Child Support Obligation",
-      bodyUz: "Ota-ona voyaga yetmagan bolalariga aliment to‘lashi shart.",
+      bodyUz: "Ota-ona voyaga yetmagan bolalariga aliment to'lashi shart.",
       bodyEn: "Parents must provide financial maintenance for minor children."
     },
     {
@@ -174,16 +146,16 @@ const libraryData = {
   crim: [
     {
       num: "31-modda / Article 31",
-      titleUz: "Zaruriy mudofaa (O‘zini himoya qilish)",
+      titleUz: "Zaruriy mudofaa (O'zini himoya qilish)",
       titleEn: "Lawful Self-Defense",
-      bodyUz: "Noqonuniy hujumdan o‘zini himoya qilish chog‘ida tajovuzkorga yetkazilgan zarar jinoyat hisoblanmaydi.",
+      bodyUz: "Noqonuniy hujumdan o'zini himoya qilish chog'ida tajovuzkorga yetkazilgan zarar jinoyat hisoblanmaydi.",
       bodyEn: "Harm inflicted during lawful defense against unlawful attack incurs no criminal guilt."
     },
     {
       num: "168-modda / Article 168",
       titleUz: "Firibgarlik va kiberjinoyat",
       titleEn: "Fraud and Digital Theft",
-      bodyUz: "Bank kartalaridan pul o‘g‘irlash va aldov yo‘li bilan mulkni egallash og‘ir jinoyatdir.",
+      bodyUz: "Bank kartalaridan pul o'g'irlash va aldov yo'li bilan mulkni egallash og'ir jinoyatdir.",
       bodyEn: "Misappropriation of funds via electronic cards is prosecuted as aggravated fraud."
     }
   ]
@@ -191,34 +163,38 @@ const libraryData = {
 
 const langText = {
   uz: {
-    banner: "O‘zbekiston qonunlari va BMT Inson Huquqlari asosida ishlovchi ochiq AI platformasi",
+    banner: "O'zbekiston qonunlari va BMT Inson Huquqlari asosida ishlovchi ochiq AI platformasi",
     subtitle: "AI Huquqiy Hamkor",
     navHome: "Bosh sahifa",
     navAdvisor: "Huquqiy Maslahatchi",
     navCodes: "Kodekslar & Inson Huquqlari",
     navAuditor: "Shartnoma Auditi",
     navReviews: "Baholash & Sharhlar",
-    heroBadge: "O‘zbekiston Qonunchiligi & BMT Inson Huquqlari",
+    heroBadge: "O'zbekiston Qonunchiligi & BMT Inson Huquqlari",
     heroTitle1: "Adolatli huquqiy yordam —",
     heroTitle2: "Har bir inson uchun erkin va ochiq.",
-    heroDesc: "LegalMind — O‘zbekistonning barcha asosiy kodekslari, BMT Inson Huquqlari Umumjahon Deklaratsiyasi va shartnomalar tahlilini birlashtirgan sun'iy intellekt ekotizimi.",
+    heroDesc: "LegalMind — O'zbekistonning barcha asosiy kodekslari, BMT Inson Huquqlari Umumjahon Deklaratsiyasi va shartnomalar tahlilini birlashtirgan sun'iy intellekt ekotizimi.",
     heroBtnAdvisor: "Maslahatchi bilan suhbat",
     heroBtnCodes: "Barcha Kodekslar & Inson Huquqlari",
     heroBtnReviews: "Fikrlar va Baholash (4.9★)",
     heroStatRating: "Foydalanuvchilar Bahosi",
     heroStatVisits: "Jami Tashriflar",
     advisorTitle: "Huquqiy Maslahatchi & Aniq Moddalar Tahlili",
-    advisorDesc: "O‘zbekiston Kodekslari va xalqaro me'yorlar bo‘yicha istalgan savolingizga javob oling.",
-    btnAsk: "So‘rash",
+    advisorDesc: "O'zbekiston Kodekslari va xalqaro me'yorlar bo'yicha istalgan savolingizga javob oling.",
+    btnAsk: "So'rash",
     chatPlaceholder: "Istalgan modda yoki savolingizni yozing (masalan: '31-modda', 'Inson huquqlari 1', 'Aliment')...",
+    contractPlaceholder: "Shartnoma matnini kiriting...",
+    revNamePlaceholder: "Ismingizni yozing...",
+    revRolePlaceholder: "Masalan: Talaba, Yurist, Frilanser, Expat...",
+    revCommentPlaceholder: "Platforma sizga qanday yordam berdi? Taklif va mulohazalaringiz...",
     codesTitle: "Kodekslar Kutubxonasi & Inson Huquqlari",
-    codesDesc: "BMT Umumjahon Deklaratsiyasi va O‘zbekiston Respublikasi barcha asosiy qonunchilik to‘plamlari.",
+    codesDesc: "BMT Umumjahon Deklaratsiyasi va O'zbekiston Respublikasi barcha asosiy qonunchilik to'plamlari.",
     auditorTitle: "Shartnomalar Auditi va Xavf Analizatori",
     auditorDesc: "Shartnoma bandlaridagi yashirin xavflarni bir soniyada fosh qiling.",
     sampleLabel: "Tayyor namunalar:",
     btnAnalyze: "Xavflarni Tahlil Qilish",
     reviewsTitle: "Foydalanuvchilar Bahosi & Sharhlar",
-    reviewsDesc: "Platforma haqida o‘z bahoingiz va fikringizni qoldiring yoki muallifga to‘g‘ridan-to‘g‘ri yozing.",
+    reviewsDesc: "Platforma haqida o'z bahoingiz va fikringizni qoldiring yoki muallifga to'g'ridan-to'g'ri yozing.",
     reviewsCountBadge: "50+ Mamnun foydalanuvchilar",
     formReviewTitle: "Fikr va Baho Qoldirish",
     labelRevName: "Ismingiz",
@@ -229,7 +205,17 @@ const langText = {
     feedReviewsTitle: "Foydalanuvchilar Sharhlari",
     feedRealtimeTag: "Jonli Yangilanadi",
     feedbackLabel: "💬 Fikr va Takliflar (@sapuras)",
-    footerCounterLabel: "Jami ko‘rishlar:",
+    footerCounterLabel: "Jami ko'rishlar:",
+    auditEmptyTitle: "Hali hech qanday shartnoma tekshirilmadi",
+    codePillHr: "🌍 Inson Huquqlari",
+    codePillConst: "🏛️ Konstitutsiya",
+    codePillLabor: "💼 Mehnat",
+    codePillCivil: "⚖️ Fuqarolik",
+    codePillFamily: "👶 Oila",
+    codePillCrim: "🛡️ Jinoyat",
+    sampleLabor: "📄 Noqonuniy Mehnat Shartnomasi",
+    sampleFreelance: "💻 Frilans Shartnomasi",
+    sampleRent: "🏠 Ijara Shartnomasi",
     topics: [
       { label: "🌍 Inson huquqlari 1-modda", q: "Inson huquqlari umumjahon deklaratsiyasining 1-moddasi nima?" },
       { label: "📜 31-modda barcha kodekslarda", q: "31-modda qaysi va nima haqida?" },
@@ -259,6 +245,10 @@ const langText = {
     advisorDesc: "Grounded guidance on national codes and international human rights treaties.",
     btnAsk: "Ask",
     chatPlaceholder: "Enter any article or query (e.g. 'Article 31', 'Human Rights 1', 'Child Support')...",
+    contractPlaceholder: "Paste or type contract text here...",
+    revNamePlaceholder: "Enter your full name...",
+    revRolePlaceholder: "e.g. Student, Lawyer, Freelancer, Expat...",
+    revCommentPlaceholder: "How did LegalMind help you? Share your experience...",
     codesTitle: "Legal Codes Library & Human Rights",
     codesDesc: "UN Universal Declaration of Human Rights and official Uzbekistan Legal Codes.",
     auditorTitle: "Contract Risk Analyzer & Clause Audit",
@@ -278,6 +268,16 @@ const langText = {
     feedRealtimeTag: "Real-time Feed",
     feedbackLabel: "💬 Feedback & Inquiries (@sapuras)",
     footerCounterLabel: "Total Page Visits:",
+    auditEmptyTitle: "No contract analyzed yet",
+    codePillHr: "🌍 Human Rights",
+    codePillConst: "🏛️ Constitution",
+    codePillLabor: "💼 Labor",
+    codePillCivil: "⚖️ Civil",
+    codePillFamily: "👶 Family",
+    codePillCrim: "🛡️ Criminal",
+    sampleLabor: "📄 Illegal Labor Contract",
+    sampleFreelance: "💻 Freelance Agreement",
+    sampleRent: "🏠 Rental Agreement",
     topics: [
       { label: "🌍 Human Rights Article 1", q: "What is Article 1 of the Universal Declaration of Human Rights?" },
       { label: "📜 Article 31 across codes", q: "What is Article 31 across Uzbek legal codes?" },
@@ -357,7 +357,17 @@ function applyLanguage(lang) {
     'feed-reviews-title': d.feedReviewsTitle,
     'feed-realtime-tag': d.feedRealtimeTag,
     'floating-feedback-label': d.feedbackLabel,
-    'footer-counter-label': d.footerCounterLabel
+    'footer-counter-label': d.footerCounterLabel,
+    'audit-empty-title': d.auditEmptyTitle,
+    'code-pill-hr': d.codePillHr,
+    'code-pill-const': d.codePillConst,
+    'code-pill-labor': d.codePillLabor,
+    'code-pill-civil': d.codePillCivil,
+    'code-pill-family': d.codePillFamily,
+    'code-pill-crim': d.codePillCrim,
+    'ui-sample-labor': d.sampleLabor,
+    'ui-sample-freelance': d.sampleFreelance,
+    'ui-sample-rent': d.sampleRent
   };
 
   for (const [id, text] of Object.entries(map)) {
@@ -365,14 +375,27 @@ function applyLanguage(lang) {
     if (el) el.textContent = text;
   }
 
+  // ✅ Update ALL input/textarea placeholders based on language
   const chatIn = document.getElementById('chat-input');
   if (chatIn) chatIn.placeholder = d.chatPlaceholder;
+
+  const contractIn = document.getElementById('contract-input');
+  if (contractIn) contractIn.placeholder = d.contractPlaceholder;
+
+  const revName = document.getElementById('rev-name');
+  if (revName) revName.placeholder = d.revNamePlaceholder;
+
+  const revRole = document.getElementById('rev-role');
+  if (revRole) revRole.placeholder = d.revRolePlaceholder;
+
+  const revComment = document.getElementById('rev-comment');
+  if (revComment) revComment.placeholder = d.revCommentPlaceholder;
 
   // Topics
   const topCont = document.getElementById('desktop-topics-container');
   if (topCont) {
     topCont.innerHTML = `<span class="text-slate-500 self-center font-medium">${lang === 'uz' ? 'Mavzular:' : 'Topics:'}</span>` +
-      d.topics.map(t => `<button onclick="setChatInput('${t.q.replace(/'/g, "\\'")}')" class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white transition-all">${t.label}</button>`).join('');
+      d.topics.map(t => `<button onclick="setChatInput('${t.q.replace(/'/g, "\\'")}')\" class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white transition-all">${t.label}</button>`).join('');
   }
 }
 
@@ -417,7 +440,7 @@ function handleReviewSubmit(e) {
   setFormStars(5);
 
   renderReviewsFeed();
-  alert(state.lang === 'uz' ? 'Rahmat! Fikringiz muvaffaqiyatli qabul qilindi va e\'lon qilindi!' : 'Thank you! Your testimonial and rating has been published!');
+  alert(state.lang === 'uz' ? "Rahmat! Fikringiz muvaffaqiyatli qabul qilindi va e'lon qilindi!" : 'Thank you! Your testimonial and rating has been published!');
 }
 
 function renderReviewsFeed() {
@@ -530,8 +553,8 @@ function initChat() {
         <i data-lucide="scale" class="w-4 h-4"></i>
       </div>
       <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-sm text-slate-200 max-w-2xl leading-relaxed">
-        ${isUz 
-          ? "Assalomu alaykum! Men <strong>LegalMind</strong> — O‘zbekiston Kodekslari va BMT Inson Huquqlari bo‘yicha AI maslahatchiman. Istalgan savolingizni yoki modda raqamini yozing!"
+        ${isUz
+          ? "Assalomu alaykum! Men <strong>LegalMind</strong> — O'zbekiston Kodekslari va BMT Inson Huquqlari bo'yicha AI maslahatchiman. Istalgan savolingizni yoki modda raqamini yozing!"
           : "Hello! I am <strong>LegalMind</strong> — your legal advisor on Uzbekistan Law and UN Human Rights Treaties. Enter any statutory article or legal inquiry below!"}
       </div>
     </div>
@@ -590,10 +613,10 @@ function generateSmartAnswer(q) {
   if (s.includes('inson huquq') || s.includes('human right') || s.includes('deklaratsiya')) {
     return isUz
       ? "🌍 **BMT Inson Huquqlari Umumjahon Deklaratsiyasi:**\n\n" +
-        "* **1-modda:** Barcha insonlar erkin, qadr-qimmat va huquqlarda teng bo‘lib tug‘iladilar.\n" +
+        "* **1-modda:** Barcha insonlar erkin, qadr-qimmat va huquqlarda teng bo'lib tug'iladilar.\n" +
         "* **3-modda:** Yashash, erkinlik va shaxsiy daxlsizlik huquqi.\n" +
         "* **5-modda:** Qiynoqlar va inson qadrini kamsituvchi muomalalar qat'iyan taqiqlanadi.\n" +
-        "* **19-modda:** Fikr va so‘z erkinligi kafolatlangan.\n" +
+        "* **19-modda:** Fikr va so'z erkinligi kafolatlangan.\n" +
         "* **23-modda:** Erkin mehnat qilish, adolatli mehnat sharoiti va teng haq olish."
       : "🌍 **Universal Declaration of Human Rights (UN):**\n\n" +
         "* **Article 1:** All human beings are born free and equal in dignity and rights.\n" +
@@ -605,11 +628,11 @@ function generateSmartAnswer(q) {
 
   if (s.includes('31')) {
     return isUz
-      ? "📖 **31-modda bo‘yicha O‘zbekiston Qonunchiligidagi asosiy me'yorlar:**\n\n" +
+      ? "📖 **31-modda bo'yicha O'zbekiston Qonunchiligidagi asosiy me'yorlar:**\n\n" +
         "1. 🏛️ **Konstitutsiya 31-modda:** Shaxsiy daxlsizlik, oilaviy sir va shaxsiy ma'lumotlar himoyasi kafolati.\n" +
         "2. 💼 **Mehnat Kodeksi 31-modda:** Jamoa shartnomalarining taraflari.\n" +
-        "3. ⚖️ **Fuqarolik Kodeksi 31-modda:** Fuqaroni bedarak yo‘qolgan deb topish (1 yil ma'lumot bo‘lmasa).\n" +
-        "4. 🛡️ **Jinoyat Kodeksi 31-modda:** Zaruriy mudofaa (o‘zini noqonuniy tajovuzdan himoya qilish)."
+        "3. ⚖️ **Fuqarolik Kodeksi 31-modda:** Fuqaroni bedarak yo'qolgan deb topish (1 yil ma'lumot bo'lmasa).\n" +
+        "4. 🛡️ **Jinoyat Kodeksi 31-modda:** Zaruriy mudofaa (o'zini noqonuniy tajovuzdan himoya qilish)."
       : "📖 **Article 31 across Legal Frameworks:**\n\n" +
         "1. 🏛️ **Constitution Art. 31:** Inviolability of private life, honor, and personal data protection.\n" +
         "2. 💼 **Labor Code Art. 31:** Parties to collective bargaining agreements.\n" +
@@ -619,18 +642,24 @@ function generateSmartAnswer(q) {
 
   if (s.includes('161')) {
     return isUz
-      ? "💼 **Mehnat Kodeksining 161-moddasi:** Ish beruvchi xodimni o‘z xohishicha bo‘shata olmaydi. Faqat qat'iy asoslar (korxona tugatilishi, shtat qisqarishi, intizom buzilishi) bilan va 2 oy oldin ogohlantirib bo‘shatishi shart."
+      ? "💼 **Mehnat Kodeksining 161-moddasi:** Ish beruvchi xodimni o'z xohishicha bo'shata olmaydi. Faqat qat'iy asoslar (korxona tugatilishi, shtat qisqarishi, intizom buzilishi) bilan va 2 oy oldin ogohlantirib bo'shatishi shart."
       : "💼 **Labor Code Article 161:** Arbitrary termination is strictly unlawful. Requires statutory grounds and advance written notice with severance.";
   }
 
-  if (s.includes('aliment')) {
+  if (s.includes('aliment') || s.includes('child support')) {
     return isUz
       ? "**Oila Kodeksining 96–99-moddalari:**\n1 bola uchun — 1/4 qism, 2 bola uchun — 1/3 qism, 3+ bola uchun — 1/2 qism daromad aliment sifatida undiriladi."
       : "**Family Code Articles 96–99:**\n1/4th of net income for 1 child, 1/3rd for 2 children, 1/2 for 3 or more children.";
   }
 
+  if (s.includes('deposit') || s.includes('depozit') || s.includes('ijara') || s.includes('rent')) {
+    return isUz
+      ? "🏠 **Fuqarolik Kodeksi 600-modda:** Ijarachining depoziti faqat haqiqiy moddiy zarar isbotlangandagina ushlab qolinishi mumkin. Kvartira egasi asossiz depozitni qaytarmasligi qonunga ziddir."
+      : "🏠 **Civil Code Article 600:** A landlord may only retain the security deposit for proven, documented property damage. Blanket non-refundable clauses are unlawful.";
+  }
+
   return isUz
-    ? `**Huquqiy Maslahat:** Siz so‘ragan masala O‘zbekiston qonunlari va Inson Huquqlari me'yorlariga asosan tartibga solinadi. Nizoni yechish uchun avval 10 kunlik yozma Talabnoma (Pretenziya) berish tavsiya etiladi.`
+    ? `**Huquqiy Maslahat:** Siz so'ragan masala O'zbekiston qonunlari va Inson Huquqlari me'yorlariga asosan tartibga solinadi. Nizoni yechish uchun avval 10 kunlik yozma Talabnoma (Pretenziya) berish tavsiya etiladi.`
     : `**Legal Guidance:** Regulated under Uzbekistan Legal Codes and International Human Rights Treaties. Serving a 10-day formal demand letter (Pretenziya) is customary before litigation.`;
 }
 
@@ -638,10 +667,10 @@ function loadSampleContract(type) {
   const isUz = state.lang === 'uz';
   const c = {
     labor: isUz
-      ? "1-band. Xodim haftasiga 50 soat ishlaydi.\n2-band. Ish beruvchi ogohlantirishsiz xodimni darhol ishdan bo‘shatish huquqiga ega.\n3-band. Kech qolgan har daqiqa uchun oylikdan 100 000 so‘m jarima ushlab qolinadi."
+      ? "1-band. Xodim haftasiga 50 soat ishlaydi.\n2-band. Ish beruvchi ogohlantirishsiz xodimni darhol ishdan bo'shatish huquqiga ega.\n3-band. Kech qolgan har daqiqa uchun oylikdan 100 000 so'm jarima ushlab qolinadi."
       : "Section 1. Mandatory 50-hour work week without overtime.\nSection 2. Immediate termination without notice or severance.\nSection 3. Deducting 100,000 UZS from salary for every minute of tardiness.",
     freelance: isUz
-      ? "Band 4. Frilanserning barcha o‘tmishdagi va kelajakdagi kodlari buyurtmachining cheksiz mulkiga aylanadi.\nBand 7. Buyurtmachi hech qanday sababsiz to‘lovni to‘xtatish huquqiga ega."
+      ? "Band 4. Frilanserning barcha o'tmishdagi va kelajakdagi kodlari buyurtmachining cheksiz mulkiga aylanadi.\nBand 7. Buyurtmachi hech qanday sababsiz to'lovni to'xtatish huquqiga ega."
       : "Clause 4. All background IP and future libraries created by Freelancer become exclusive property of Client.\nClause 7. Client may withhold 100% of payment at sole discretion.",
     rent: isUz
       ? "3.1. Kvartira egasi ogohlantirishsiz istalgan vaqtda xonadonga kirish huquqiga ega.\n3.4. Ijarachining depozit puli har qanday holatda ham qaytarilmaydi."
@@ -666,11 +695,15 @@ function analyzeContract() {
   container.innerHTML = `
     <div class="p-3 rounded-xl bg-slate-900/90 border border-rose-500/30 space-y-1">
       <strong class="text-rose-400 text-xs">${isUz ? "❌ Noqonuniy Ish Vaqti (50 soat)" : "❌ Unlawful 50-Hour Work Week"}</strong>
-      <p class="text-[11px] text-slate-300">${isUz ? "Mehnat Kodeksining 181-moddasiga ko‘ra, haftalik norma 40 soatdan oshishi mumkin emas." : "Article 181: Standard work week cannot exceed 40 hours."}</p>
+      <p class="text-[11px] text-slate-300">${isUz ? "Mehnat Kodeksining 181-moddasiga ko'ra, haftalik norma 40 soatdan oshishi mumkin emas." : "Article 181: Standard work week cannot exceed 40 hours."}</p>
     </div>
     <div class="p-3 rounded-xl bg-slate-900/90 border border-rose-500/30 space-y-1">
       <strong class="text-rose-400 text-xs">${isUz ? "❌ Oylikdan jarima ushlash" : "❌ Illegal Salary Deductions"}</strong>
       <p class="text-[11px] text-slate-300">${isUz ? "Mehnat Kodeksining 269-moddasi ish beruvchiga pul jarimasi solishni taqiqlaydi." : "Article 269: Monetary fines on wages are strictly prohibited."}</p>
+    </div>
+    <div class="p-3 rounded-xl bg-slate-900/90 border border-amber-500/30 space-y-1">
+      <strong class="text-amber-400 text-xs">${isUz ? "⚠️ Ogohlantirishsiz ishdan bo'shatish" : "⚠️ Termination Without Notice"}</strong>
+      <p class="text-[11px] text-slate-300">${isUz ? "Mehnat Kodeksi 161-modda: Kamida 2 oylik yozma ogohlantirish talab etiladi." : "Labor Code Art. 161: At least 2 months written notice is required."}</p>
     </div>
   `;
 }
