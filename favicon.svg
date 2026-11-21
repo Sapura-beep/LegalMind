@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background rounded app icon -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="8" />
+
+  <!-- Scales of Justice (Scales Beam & Pillar) -->
+  <g filter="url(#glow)">
+    <!-- Central Pillar -->
+    <rect x="246" y="110" width="20" height="270" rx="10" fill="#f8fafc" />
+    <!-- Pillar Base -->
+    <path d="M190 380 L322 380 L340 410 L172 410 Z" fill="#f8fafc" rx="8" />
+    <!-- Center Top Pivot -->
+    <circle cx="256" cy="115" r="22" fill="url(#goldGrad)" />
+    <!-- Balance Beam -->
+    <path d="M110 165 C 180 145, 332 145, 402 165" fill="none" stroke="url(#goldGrad)" stroke-width="16" stroke-linecap="round" />
+
+    <!-- Left Scale Pan -->
+    <line x1="110" y1="165" x2="65" y2="250" stroke="#94a3b8" stroke-width="6" />
+    <line x1="110" y1="165" x2="155" y2="250" stroke="#94a3b8" stroke-width="6" />
+    <path d="M50 250 C 50 295, 170 295, 170 250 Z" fill="url(#goldGrad)" />
+
+    <!-- Right Scale Pan -->
+    <line x1="402" y1="165" x2="357" y2="250" stroke="#94a3b8" stroke-width="6" />
+    <line x1="402" y1="165" x2="447" y2="250" stroke="#94a3b8" stroke-width="6" />
+    <path d="M342 250 C 342 295, 462 295, 462 250 Z" fill="url(#goldGrad)" />
+
+    <!-- Modern AI Circuit Dots -->
+    <circle cx="110" cy="272" r="8" fill="#ffffff" />
+    <circle cx="402" cy="272" r="8" fill="#ffffff" />
+    <circle cx="256" cy="230" r="10" fill="#38bdf8" />
+  </g>
+</svg>
